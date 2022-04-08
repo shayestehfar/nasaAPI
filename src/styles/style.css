@@ -1,0 +1,15 @@
+.test {
+  background-color: red;
+}
+
+.test button {
+  background-color: blue;
+  width: 10rem;
+  height: 36rem;
+  cursor: pointer;
+}
+
+.test button:hover {
+  background-color: green;
+}
+/*# sourceMappingURL=style.css.map */

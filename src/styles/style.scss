@@ -1,0 +1,12 @@
+.test {
+  background-color: red;
+  button {
+    background-color: blue;
+    width: 10rem;
+    height: 36rem;
+    cursor: pointer;
+    &:hover {
+      background-color: green;
+    }
+  }
+}
