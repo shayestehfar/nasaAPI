@@ -1,9 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import './index.css'
 function App() {
   const [data, setData] = useState(null)
   const [keyword, setKeyword] = useState('')
+  const myRef = useRef(null)
+
+  useEffect(() => {
+    myRef.current.focus()
+  }, [])
   useEffect(() => {
     axios
       .get(
@@ -14,17 +19,19 @@ function App() {
       })
   }, [keyword])
   return (
-    <div className='container my-0 mx-auto  flex flex-col justify-center align-center text-center'>
+    <div className='w-full my-0 mx-auto align-center text-center'>
       <input
-        className=' max-w-6xl w-8/12 h-14 bg-blue-300 placeholder-opacity-75 shadow-lg
+        className='  w-8/12 h-14 bg-blue-300 placeholder-opacity-75 shadow-lg
         placeholder:font-thin text-lg 
         placeholder-white text-center font-Roboto'
         type='text'
+        ref={myRef}
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
         placeholder='type any keyword to show NASA images'
       />
-      <div className='flex flex-wrap justify-center align-center w-400  max-w-screen-lg '>
+
+      <div className=' flex flex-wrap w-8/12 mx-auto justify-center'>
         {data &&
           data.map((item) => {
             return (
